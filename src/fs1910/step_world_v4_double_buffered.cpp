@@ -92,7 +92,7 @@ std::string LoadSource(const char *fileName)
            );
 }
 
-void StepWorldV3OpenCL(world_t &world, float dt, unsigned n)
+void StepWorldV4DoubleBuffered(world_t &world, float dt, unsigned n)
 {
     // Get platforms
     std::vector<cl::Platform> platforms;
@@ -263,7 +263,7 @@ int main(int argc, char *argv[])
         std::cerr << "Loaded world with w=" << world.w << ", h=" << world.h << std::endl;
 
         std::cerr << "Stepping by dt=" << dt << " for n=" << n << std::endl;
-        hpce::fs1910::StepWorldV3OpenCL(world, dt, n);
+        hpce::fs1910::StepWorldV4DoubleBuffered(world, dt, n);
 
         hpce::SaveWorld(std::cout, world, binary);
     }
